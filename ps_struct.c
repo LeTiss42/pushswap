@@ -24,7 +24,6 @@ t_stack	*initialisation(int data)
 	newnode->data = data;
 	newnode->prev = NULL;
 	newnode->next = NULL;
-	newstack->sizetot = 1;
 	newstack->top = newnode;
 	newstack->bot = newnode;
 	return (newstack);

@@ -24,7 +24,6 @@ typedef struct s_node
 
 typedef struct s_stack
 {
-	size_t			sizetot;
 	struct s_node	*top;
 	struct s_node	*bot;
 }	t_stack;
@@ -33,5 +32,8 @@ typedef struct s_stack
 t_stack	*initialisation(int data);
 t_node	*new_node(int data);
 t_stack	*new_stack(void);
+
+//parsing
+
 
 #endif
