@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 10:12:09 by mravera           #+#    #+#             */
-/*   Updated: 2022/08/22 19:44:42 by mravera          ###   ########.fr       */
+/*   Created: 2022/08/22 19:32:25 by mravera           #+#    #+#             */
+/*   Updated: 2022/08/22 20:00:04 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-
-typedef struct s_node
+int	main(int argc, char **argv)
 {
-	int				data;
-	struct s_node	*prev;
-	struct s_node	*next;
-}	t_node;
+	t_stack	*list;
 
-typedef struct s_stack
-{
-	struct s_node	*top;
-	struct s_node	*bot;
-}	t_stack;
-
-//struct
-t_stack	*initialisation(int data);
-t_node	*new_node(int data);
-t_stack	*new_stack(void);
-
-//parsing
-
-#endif
+	(void) argc;
+	(void) argv;
+	list = initialisation(87);
+	printf("listop = %d\n", list->top->data);
+	printf("lisbot = %d\n", list->bot->data);
+	return (0);
+}
