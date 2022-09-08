@@ -12,13 +12,13 @@
 
 #include "push_swap.h"
 
-t_stack	*initialisation(int data)
+t_stack	*initialisation()
 {
 	t_stack	*newstack;
 	t_node	*newnode;
 
 	newstack = new_stack();
-	newnode = new_node(data);
+	//newnode = new_node(data);
 	if (newnode == NULL || newstack == NULL)
 		return (NULL);
 	newstack->top = newnode;
@@ -27,7 +27,7 @@ t_stack	*initialisation(int data)
 }
 
 t_stack	*new_stack(void)
-{	
+{
 	t_stack	*s;
 
 	s = malloc(sizeof(*s));
@@ -38,17 +38,27 @@ t_stack	*new_stack(void)
 	return (s);
 }
 
-t_node	*new_node(int data)
+void	new_node(t_stack *list, int data)
 {
 	t_node	*n;
 
 	n = malloc(sizeof(*n));
 	if (n == NULL)
-		return (NULL);
-	n->data = data;
-	n->next = NULL;
-	n->prev = NULL;
-	return (n);
+		return;
+	if (list->top == NULL)
+	{
+		n->data = data;
+		n->next = NULL;
+		n->prev = NULL;
+		list->bot = n;
+		list->top = n;
+	}
+	else
+	{
+		list->top->prev = n;
+		n->next = list->top;
+		list->top = n;
+	}
 }
 
 void	display_list(t_stack *list)

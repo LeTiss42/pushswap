@@ -31,7 +31,7 @@ typedef struct s_stack
 
 //struct
 t_stack	*initialisation(int data);
-t_node	*new_node(int data);
+void	new_node(t_stack *list, int data);
 t_stack	*new_stack(void);
 
 //parsing
