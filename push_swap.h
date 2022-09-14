@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:12:09 by mravera           #+#    #+#             */
-/*   Updated: 2022/08/22 19:44:42 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/14 19:16:50 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 typedef struct s_node
 {
 	int				data;
+	int				pos;
 	struct s_node	*prev;
 	struct s_node	*next;
 }	t_node;
@@ -30,10 +31,14 @@ typedef struct s_stack
 }	t_stack;
 
 //struct
-t_stack	*initialisation(int data);
-void	new_node(t_stack *list, int data);
 t_stack	*new_stack(void);
+void	new_topnode(t_stack *list, int data, int pos);
+void	supp_topnode(t_stack *list);
+void	display_list(t_stack *list, char *a_ou_b);
+void	set_pos(t_stack *list);
 
-//parsing
+//push
+void	push_a(t_stack *list_a, t_stack *list_b);
+void	push_b(t_stack *list_a, t_stack *list_b);
 
 #endif

@@ -6,72 +6,114 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:10:37 by mravera           #+#    #+#             */
-/*   Updated: 2022/08/22 20:29:02 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/14 19:17:58 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*initialisation()
+t_stack	*new_stack(void)
 {
 	t_stack	*newstack;
-	t_node	*newnode;
 
-	newstack = new_stack();
-	//newnode = new_node(data);
-	if (newnode == NULL || newstack == NULL)
+	newstack = malloc(sizeof(*newstack));
+	if (newstack == NULL)
 		return (NULL);
-	newstack->top = newnode;
-	newstack->bot = newnode;
+	newstack->top = NULL;
+	newstack->bot = NULL;
 	return (newstack);
 }
 
-t_stack	*new_stack(void)
+void	new_topnode(t_stack *list, int data, int pos)
 {
-	t_stack	*s;
+	t_node	*newnode;
 
-	s = malloc(sizeof(*s));
-	if (s == NULL)
-		return (NULL);
-	s->top = NULL;
-	s->bot = NULL;
-	return (s);
-}
-
-void	new_node(t_stack *list, int data)
-{
-	t_node	*n;
-
-	n = malloc(sizeof(*n));
-	if (n == NULL)
-		return;
+	newnode = malloc(sizeof(*newnode));
+	if (newnode == NULL)
+		return ;
 	if (list->top == NULL)
 	{
-		n->data = data;
-		n->next = NULL;
-		n->prev = NULL;
-		list->bot = n;
-		list->top = n;
+		newnode->next = NULL;
+		newnode->prev = NULL;
+		list->bot = newnode;
+		list->top = newnode;
 	}
 	else
 	{
-		list->top->prev = n;
-		n->next = list->top;
-		list->top = n;
+		list->top->next = newnode;
+		newnode->prev = list->top;
+		list->top = newnode;
 	}
+		list->top->data = data;
+		list->top->pos = pos;
 }
 
-void	display_list(t_stack *list)
+void	supp_topnode(t_stack *list)
+{
+	t_node	*temp;
+
+	if (list->top == NULL)
+		return ;
+	if (list->top->prev == NULL)
+	{
+		temp = list->top;
+		list->top = NULL;
+		list->bot = NULL;
+	}
+	else
+	{
+		temp = list->top;
+		list->top = list->top->prev;
+		list->top->next = NULL;
+	}
+	free (temp);
+	return ;
+}
+
+void	display_list(t_stack *list, char *a_ou_b)
 {
 	t_node	*temp;
 	int		i;
 
+	printf("__liste %s__\n", a_ou_b);
+	if (list->top == NULL)
+	{
+		printf("***liste vide***\n\n");
+		return ;
+	}
 	i = 1;
 	temp = list->top;
-	while (temp->next != NULL)
+	printf("listop = %d\n", list->top->data);
+	printf("lisbot = %d\n", list->bot->data);
+	while (temp->prev != NULL)
 	{
-		printf("%d = [%d\n]", i++, temp->data);
-		temp = temp->next;
+		printf("%d# [%d] %d\n", i, temp->pos, temp->data);
+		i++;
+		temp = temp->prev;
 	}
-	printf("%d = [%d\n]", i++, temp->data);
+	printf("%d# [%d] %d\n\n", i, temp->pos, temp->data);
+}
+
+void	set_pos(t_stack *list)
+{
+	t_node	*temp1;
+	t_node	*temp2;
+	int		i;
+
+	i = 0;
+	temp1 = list->bot;
+	temp2 = list->bot;
+	while (temp1 != NULL)
+	{
+		while (temp2 != NULL)
+		{
+			if (temp1->data > temp2->data)
+				i++;
+			temp2 = temp2->next;
+		}
+	temp1->pos = i;
+	i = 0;
+	temp1 = temp1->next;
+	temp2 = list->bot;
+	}
 }
