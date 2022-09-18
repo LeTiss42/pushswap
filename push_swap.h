@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:12:09 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/14 19:16:50 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/18 20:03:54 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ typedef struct s_stack
 	struct s_node	*top;
 	struct s_node	*bot;
 }	t_stack;
+
+//utils
+int		list_size(t_stack *list);
 
 //struct
 t_stack	*new_stack(void);

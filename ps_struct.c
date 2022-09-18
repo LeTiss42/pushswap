@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:10:37 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/14 19:17:58 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/18 19:16:54 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,15 +83,15 @@ void	display_list(t_stack *list, char *a_ou_b)
 	}
 	i = 1;
 	temp = list->top;
-	printf("listop = %d\n", list->top->data);
-	printf("lisbot = %d\n", list->bot->data);
 	while (temp->prev != NULL)
 	{
 		printf("%d# [%d] %d\n", i, temp->pos, temp->data);
 		i++;
 		temp = temp->prev;
 	}
-	printf("%d# [%d] %d\n\n", i, temp->pos, temp->data);
+	printf("%d# [%d] %d\n", i, temp->pos, temp->data);
+	printf("listop = %d\n", list->top->data);
+	printf("lisbot = %d\n\n", list->bot->data);
 }
 
 void	set_pos(t_stack *list)

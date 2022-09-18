@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:32:25 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/14 19:15:27 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/18 20:08:41 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,19 @@ int	main(int argc, char **argv)
 	new_topnode(list_a, 3333, 0);
 	new_topnode(list_a, -4, 0);
 	set_pos(list_a);
-	display_list(list_a, "a");
-	display_list(list_b, "b");
 	push_b(list_a, list_b);
 	display_list(list_a, "a");
 	display_list(list_b, "b");
+	printf("taille de la liste = %d\n", list_size(list_a));
+	printf("taille de la liste = %d\n", list_size(list_b));
 	push_b(list_a, list_b);
 	display_list(list_a, "a");
 	display_list(list_b, "b");
+	printf("taille de la liste = %d\n", list_size(list_a));
+	printf("taille de la liste = %d\n", list_size(list_b));
 	push_a(list_a, list_b);
-	display_list(list_a, "a");
-	display_list(list_b, "b");
 	push_a(list_a, list_b);
-	display_list(list_a, "a");
-	display_list(list_b, "b");
+	printf("taille de la liste = %d\n", list_size(list_a));
+	printf("taille de la liste = %d\n", list_size(list_b));
 	return (0);
 }
