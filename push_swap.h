@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:12:09 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/18 20:03:54 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/19 17:52:22 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ typedef struct s_stack
 	struct s_node	*bot;
 }	t_stack;
 
-//utils
+extern int	g_nbr;
+//tri
+void	tri_selectif(t_stack *list_a, t_stack *list_b);
 int		list_size(t_stack *list);
 
 //struct
@@ -43,5 +45,9 @@ void	set_pos(t_stack *list);
 //push
 void	push_a(t_stack *list_a, t_stack *list_b);
 void	push_b(t_stack *list_a, t_stack *list_b);
+void	pa_all(t_stack *list_a, t_stack *list_b);
+
+//rotate
+void	ra(t_stack *list_a);
 
 #endif
