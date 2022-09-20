@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:12:09 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/19 17:52:22 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/20 15:38:54 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_node
 {
@@ -30,7 +31,9 @@ typedef struct s_stack
 	struct s_node	*bot;
 }	t_stack;
 
+//a supprimer
 extern int	g_nbr;
+
 //tri
 void	tri_selectif(t_stack *list_a, t_stack *list_b);
 int		list_size(t_stack *list);

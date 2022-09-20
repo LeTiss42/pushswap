@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:27:58 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/20 01:41:29 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/20 15:20:06 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void	ra(t_stack *list_a)
 	tempi->prev = NULL;
 	list_a->bot->prev = tempi;
 	list_a->bot = tempi;
-	printf("ra\n");
+	write(1, "ra\n", 3);
 	g_nbr++;
 }
