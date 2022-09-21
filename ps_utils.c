@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_parsing.c                                       :+:      :+:    :+:   */
+/*   ps_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 09:58:23 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/21 18:22:41 by mravera          ###   ########.fr       */
+/*   Created: 2022/09/21 16:54:04 by mravera           #+#    #+#             */
+/*   Updated: 2022/09/21 18:23:37 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_multiple_args(char **argv)
+int	ps_is_digit(int x)
 {
-	int	i;
-	int	j;
-	int	x;
+	if (x >= '0' && x <= '9')
+		return (1);
+	else
+		return (0);
+}
 
-	i = 1;
-	j = 0;
-	while (argv[i])
+int	ps_atoi(const char *nptr)
+{
+	int				i;
+	int				sign;
+	unsigned int	res;
+
+	sign = 1;
+	i = 0;
+	res = 0;
+	while ((9 <= nptr[i] && nptr[i] <= 13) || (nptr[i] == ' '))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if (argv[i][j] == '-' || argv[i][j] == '+')
-			j++;
-		if (argv[i][j] == '\0')
-			return (write(2, "Error\n", 6));
-		while (argv[i][j])
-			if (!ps_is_digit(argv[i][j++]))
-				return (write(2, "Error\n", 6));
-		x = i - 1;
-		while (x >= 1)
-			if (ps_atoi(argv[i]) == ps_atoi(argv[x--]))
-				return (write(2, "Error\n", 6));
-		j = 0;
+		if (nptr[i] == '-')
+			sign = sign * -1;
 		i++;
 	}
-	return (1);
+	while (ps_is_digit(nptr[i]))
+		res = (res * 10) + (nptr[i++] - 48);
+	return (sign * res);
 }

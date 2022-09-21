@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:32:25 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/20 15:35:47 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/21 17:56:55 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int	g_nbr = 0;
 
 int	main(int argc, char **argv)
 {
-	t_stack	*list_a;
+	(void)argc;
+	printf("test = %d\n", check_multiple_args(argv));
+/* 	t_stack	*list_a;
 	t_stack	*list_b;
 	int		i;
 
@@ -41,5 +43,5 @@ int	main(int argc, char **argv)
 	printf("taille de la liste = %d\n", list_size(list_a));
 	printf("taille de la liste = %d\n", list_size(list_b));
 	printf("\n*** nbr tot de mouvement = %d ***\n\n", g_nbr);
-	return (0);
+	return (0); */
 }
