@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:54:04 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/21 18:23:37 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/21 19:25:31 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ int	ps_atoi(const char *nptr)
 		i++;
 	}
 	while (ps_is_digit(nptr[i]))
+	{
 		res = (res * 10) + (nptr[i++] - 48);
+		if (res > 2147483648 || (res == 2147483648 && sign == 1))
+			exit(write(2, "Error\n", 6));
+	}
 	return (sign * res);
 }
