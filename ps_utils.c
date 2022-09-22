@@ -6,11 +6,26 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:54:04 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/21 19:25:31 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/22 01:39:25 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	list_size(t_stack *list)
+{
+	t_node	*tempi;
+	int		i;
+
+	i = 0;
+	tempi = list->bot;
+	while (tempi != NULL)
+	{
+		i++;
+		tempi = tempi->next;
+	}
+	return (i);
+}
 
 int	ps_is_digit(int x)
 {

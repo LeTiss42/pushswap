@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 09:58:23 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/21 19:17:42 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/22 01:19:46 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,17 @@ int	check_multiple_args(char **argv)
 	}
 	return (1);
 }
-/* 
-int	parse_multiple_args(char **argv)
-{
 
-} */
+void	parse_multiple_args(t_stack *list_a, char **argv)
+{
+	int	i;
+
+	(void)list_a;
+	i = 0;
+	check_multiple_args(argv);
+	while (argv[i])
+		i++;
+	if (--i >= 1)
+		while (i > 0)
+			new_topnode(list_a, ps_atoi(argv[i--]), 0);
+}

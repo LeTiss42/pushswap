@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 19:19:21 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/19 17:51:45 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/22 04:18:05 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,24 @@ void	tri_selectif(t_stack *list_a, t_stack *list_b)
 	}
 }
 
-int	list_size(t_stack *list)
+void	tri_triple(t_stack *list)
 {
-	t_node	*tempi;
-	int		i;
-
-	i = 0;
-	tempi = list->bot;
-	while (tempi != NULL)
+	if (list_size(list) != 3)
+		return ;
+	if (list->top->pos == 0 && list->bot->pos == 1)
 	{
-		i++;
-		tempi = tempi->next;
+		sa(list);
+		ra(list);
 	}
-	return (i);
+	if (list->top->pos == 1 && list->bot->pos == 2)
+		sa(list);
+	if (list->top->pos == 1 && list->bot->pos == 0)
+		rra(list);
+	if (list->top->pos == 2 && list->bot->pos == 0)
+	{
+		sa(list);
+		rra(list);
+	}
+	if (list->top->pos == 2 && list->bot->pos == 1)
+		ra(list);
 }

@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:12:09 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/21 18:21:50 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/22 03:09:09 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,16 @@ extern int	g_nbr;
 
 //parsing
 int		check_multiple_args(char **argv);
+void	parse_multiple_args(t_stack *list_a, char **argv);
 
 //utils
+int		list_size(t_stack *list);
 int		ps_is_digit(int x);
-int	ps_atoi(const char *nptr);
+int		ps_atoi(const char *nptr);
 
 //tri
 void	tri_selectif(t_stack *list_a, t_stack *list_b);
-int		list_size(t_stack *list);
+void	tri_triple(t_stack *list);
 
 //struct
 t_stack	*new_stack(void);
@@ -59,5 +61,12 @@ void	pa_all(t_stack *list_a, t_stack *list_b);
 
 //rotate
 void	ra(t_stack *list_a);
+void	rb(t_stack *list_a);
+void	rra(t_stack *list_a);
+void	rrb(t_stack *list_a);
+
+//swap
+void	sa(t_stack *list);
+void	sb(t_stack *list);
 
 #endif
