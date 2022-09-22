@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 19:19:21 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/22 04:18:05 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/22 12:07:08 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,12 @@ void	tri_triple(t_stack *list)
 	}
 	if (list->top->pos == 2 && list->bot->pos == 1)
 		ra(list);
+}
+
+void	tri_cinq(t_stack *lista, t_stack *listb)
+{
+	while (list_size(lista) > 3)
+		push_b(lista, listb);
+	tri_triple(lista);
+	
 }
