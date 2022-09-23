@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mravera <mravera@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 09:58:23 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/23 18:34:32 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/23 21:10:48 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,6 @@ void	parse_multiple_args(t_stack *list_a, int argc, char **argv)
 			i++;
 		while (--i >= 0)
 			new_topnode(list_a, ps_atoi(tab[i]), 0);
-		free(tab);
+		freetab(tab);
 	}
 }
