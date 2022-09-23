@@ -6,35 +6,11 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:10:37 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/22 03:14:13 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/23 13:35:12 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	display_list(t_stack *list, char *a_ou_b)
-{
-	t_node	*temp;
-	int		i;
-
-	printf("__liste %s__\n", a_ou_b);
-	if (list->top == NULL)
-	{
-		printf("***liste vide***\n\n");
-		return ;
-	}
-	i = 1;
-	temp = list->top;
-	while (temp->prev != NULL)
-	{
-		printf("%d# [%d] %d\n", i, temp->pos, temp->data);
-		i++;
-		temp = temp->prev;
-	}
-	printf("%d# [%d] %d\n", i, temp->pos, temp->data);
-	printf("listop = %d\n", list->top->data);
-	printf("lisbot = %d\n\n", list->bot->data);
-}
 
 t_stack	*new_stack(void)
 {

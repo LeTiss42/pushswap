@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:12:09 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/23 01:48:10 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/23 13:10:22 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ typedef struct s_stack
 extern int	g_nbr;
 
 //parsing
-int		check_multiple_args(char **argv);
-void	parse_multiple_args(t_stack *list_a, char **argv);
+int		check_argv_args(char **argv);
+int		check_args(char **argv);
+void	parse_multiple_args(t_stack *list_a, int argc, char **argv);
 
 //utils
 int		list_size(t_stack *list);
@@ -74,4 +75,13 @@ void	rrb(t_stack *list_a);
 void	sa(t_stack *list);
 void	sb(t_stack *list);
 
+//ps_split
+char	**freetab(char **tab);
+size_t	nextchar(char const *s, char c);
+size_t	nbword(char const *s, char c);
+char	**ps_split(char const *s, char c);
+
+//ps_split_utils
+size_t	ps_strlen(const char *s);
+char	*ps_substr(char const *s, unsigned int start, size_t len);
 #endif
