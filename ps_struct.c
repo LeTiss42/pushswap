@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_struct.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: mravera <mravera@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:10:37 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/23 14:41:25 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/23 20:19:44 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ void	new_topnode(t_stack *list, int data, int pos)
 		list->top->next = newnode;
 		newnode->prev = list->top;
 		list->top = newnode;
+		list->top->next = NULL;
 	}
-		list->top->data = data;
-		list->top->pos = pos;
+	list->top->data = data;
+	list->top->pos = pos;
 }
 
 void	supp_topnode(t_stack *list)
@@ -79,18 +80,18 @@ void	set_pos(t_stack *list)
 	i = 0;
 	temp1 = list->bot;
 	temp2 = list->bot;
-	while (temp1 != NULL)
+	while (temp1)
 	{
-		while (temp2 != NULL)
+		while (temp2)
 		{
 			if (temp1->data > temp2->data)
 				i++;
 			temp2 = temp2->next;
 		}
-	temp1->pos = i;
-	i = 0;
-	temp1 = temp1->next;
-	temp2 = list->bot;
+		temp1->pos = i;
+		i = 0;
+		temp1 = temp1->next;
+		temp2 = list->bot;
 	}
 }
 
