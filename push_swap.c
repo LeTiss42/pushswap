@@ -6,13 +6,11 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:32:25 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/23 21:12:30 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/23 21:51:47 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	display_list(t_stack *list, char *a_ou_b);
 
 int	main(int argc, char **argv)
 {
@@ -41,7 +39,7 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-void	display_list(t_stack *list, char *a_ou_b)
+/* void	display_list(t_stack *list, char *a_ou_b)
 {
 	t_node	*temp;
 	int		i;
@@ -63,3 +61,4 @@ void	display_list(t_stack *list, char *a_ou_b)
 	printf("listop = %d\n", list->top->data);
 	printf("lisbot = %d\n\n", list->bot->data);
 }
+ */
