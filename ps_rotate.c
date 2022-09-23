@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:27:58 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/22 04:26:16 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/23 14:28:35 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	ra(t_stack *list_a)
 		list_a->bot = tempi;
 	}
 	write(1, "ra\n", 3);
-	g_nbr++;
 }
 
 void	rb(t_stack *list_a)
@@ -45,7 +44,6 @@ void	rb(t_stack *list_a)
 		list_a->bot = tempi;
 	}
 	write(1, "rb\n", 3);
-	g_nbr++;
 }
 
 void	rra(t_stack *list_a)
@@ -63,7 +61,6 @@ void	rra(t_stack *list_a)
 		list_a->top = tempi;
 	}
 	write(1, "rra\n", 4);
-	g_nbr++;
 }
 
 void	rrb(t_stack *list_a)
@@ -81,5 +78,4 @@ void	rrb(t_stack *list_a)
 		list_a->top = tempi;
 	}
 	write(1, "rrb\n", 4);
-	g_nbr++;
 }

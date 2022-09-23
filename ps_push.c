@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:30:11 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/22 04:17:50 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/23 14:28:45 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	push_a(t_stack *list_a, t_stack *list_b)
 	new_topnode(list_a, list_b->top->data, list_b->top->pos);
 	supp_topnode(list_b);
 	write(1, "pa\n", 3);
-	g_nbr++;
 	return ;
 }
 
@@ -36,7 +35,6 @@ void	push_b(t_stack *list_a, t_stack *list_b)
 	new_topnode(list_b, list_a->top->data, list_a->top->pos);
 	supp_topnode(list_a);
 	write(1, "pb\n", 3);
-	g_nbr++;
 	return ;
 }
 

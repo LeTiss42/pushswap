@@ -6,13 +6,11 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:32:25 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/23 13:38:47 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/23 14:42:08 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	g_nbr = 0;
 
 int	main(int argc, char **argv)
 {
@@ -36,6 +34,8 @@ int	main(int argc, char **argv)
 		else if (list_size(list_a) > 5)
 			tri_selectif(list_a, list_b);
 	}
+	free_stack(list_a);
+	free_stack(list_b);
 	return (0);
 }
 

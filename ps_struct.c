@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:10:37 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/23 13:35:12 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/23 14:41:25 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,11 @@ void	set_pos(t_stack *list)
 	temp1 = temp1->next;
 	temp2 = list->bot;
 	}
+}
+
+void	free_stack(t_stack *list)
+{
+	while (list_size(list) > 0)
+		supp_topnode(list);
+	free(list);
 }
