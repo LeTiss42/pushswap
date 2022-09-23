@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: mravera <mravera@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 09:58:23 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/23 13:32:31 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/23 18:34:32 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,12 @@ int	check_args(char **argv)
 			if (!ps_is_digit(argv[i][j++]))
 				exit(write(2, "Error\n", 6));
 		x = i - 1;
-		while (x >= 1)
-			if (ps_atoi(argv[i]) == ps_atoi(argv[x--]))
-				exit(write(2, "Error\n", 6));
-		j = 0;
+		if (i >= 1)
+			while (x >= 0)
+				if (ps_atoi(argv[i]) == ps_atoi(argv[x--]))
+					exit(write(2, "Error\n", 6));
 		i++;
+		j = 0;
 	}
 	return (1);
 }
