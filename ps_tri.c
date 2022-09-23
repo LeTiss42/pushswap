@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 19:19:21 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/22 12:07:08 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/23 01:47:21 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,26 +38,27 @@ void	tri_selectif(t_stack *list_a, t_stack *list_b)
 	}
 }
 
-void	tri_triple(t_stack *list)
+void	tri_triple(t_stack *l)
 {
-	if (list_size(list) != 3)
+	int	a;
+	int	b;
+	int	c;
+
+	if (list_size(l) != 3)
 		return ;
-	if (list->top->pos == 0 && list->bot->pos == 1)
+	while (ps_is_sorted(l) != 1)
 	{
-		sa(list);
-		ra(list);
+		a = l->top->pos;
+		b = l->top->prev->pos;
+		c = l->bot->pos;
+		if ((a < b && a < c && b > c) || (a > b && a < c && b < c)
+			|| (a > b && a > c && b > c))
+			sa(l);
+		else if (a > b && a > c && b < c)
+			ra(l);
+		else if (a < b && a > c && b > c)
+			rra(l);
 	}
-	if (list->top->pos == 1 && list->bot->pos == 2)
-		sa(list);
-	if (list->top->pos == 1 && list->bot->pos == 0)
-		rra(list);
-	if (list->top->pos == 2 && list->bot->pos == 0)
-	{
-		sa(list);
-		rra(list);
-	}
-	if (list->top->pos == 2 && list->bot->pos == 1)
-		ra(list);
 }
 
 void	tri_cinq(t_stack *lista, t_stack *listb)
@@ -65,5 +66,61 @@ void	tri_cinq(t_stack *lista, t_stack *listb)
 	while (list_size(lista) > 3)
 		push_b(lista, listb);
 	tri_triple(lista);
-	
+	if (list_size(listb) == 1)
+		ps_to_trois(lista, listb);
+	else if (list_size(listb) == 2)
+	{
+		ps_to_trois(lista, listb);
+		ps_to_quatre(lista, listb);
+	}
+}
+
+void	ps_to_trois(t_stack *lista, t_stack *listb)
+{
+	if (listb->top->pos < lista->top->pos)
+		push_a(lista, listb);
+	else if (listb->top->pos < lista->top->prev->pos)
+	{
+		push_a(lista, listb);
+		sa(lista);
+	}
+	else if (listb->top->pos < lista->bot->pos)
+	{
+		rra(lista);
+		push_a(lista, listb);
+		ra(lista);
+		ra(lista);
+	}
+	else
+	{
+		push_a(lista, listb);
+		ra(lista);
+	}
+}
+
+void	ps_to_quatre(t_stack *lista, t_stack *listb)
+{
+	if (listb->top->pos < lista->top->pos)
+		push_a(lista, listb);
+	else if (listb->top->pos < lista->top->prev->pos)
+	{
+		push_a(lista, listb);
+		sa(lista);
+	}
+	else if (listb->top->pos < lista->bot->next->pos)
+	{
+		garb_to_quatre(lista, listb);
+	}
+	else if (listb->top->pos < lista->bot->pos)
+	{
+		rra(lista);
+		push_a(lista, listb);
+		ra(lista);
+		ra(lista);
+	}
+	else
+	{
+		push_a(lista, listb);
+		ra(lista);
+	}
 }

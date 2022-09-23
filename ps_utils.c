@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:54:04 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/22 01:39:25 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/23 01:42:31 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,21 @@ int	list_size(t_stack *list)
 		tempi = tempi->next;
 	}
 	return (i);
+}
+
+int	ps_is_sorted(t_stack *list)
+{
+	t_node	*tempi;
+
+	tempi = list->top;
+	while (tempi != NULL && tempi->prev != NULL)
+	{
+		if (tempi->pos < tempi->prev->pos)
+			tempi = tempi->prev;
+		else
+			return (0);
+	}
+	return (1);
 }
 
 int	ps_is_digit(int x)
@@ -59,4 +74,12 @@ int	ps_atoi(const char *nptr)
 			exit(write(2, "Error\n", 6));
 	}
 	return (sign * res);
+}
+
+void	garb_to_quatre(t_stack *lista, t_stack *listb)
+{
+	ra(lista);
+	push_a(lista, listb);
+	sa(lista);
+	rra(lista);
 }

@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:12:09 by mravera           #+#    #+#             */
-/*   Updated: 2022/09/22 03:09:09 by mravera          ###   ########.fr       */
+/*   Updated: 2022/09/23 01:48:10 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,17 @@ void	parse_multiple_args(t_stack *list_a, char **argv);
 
 //utils
 int		list_size(t_stack *list);
+int		ps_is_sorted(t_stack *list);
 int		ps_is_digit(int x);
 int		ps_atoi(const char *nptr);
+void	garb_to_quatre(t_stack *lista, t_stack *listb);
 
 //tri
 void	tri_selectif(t_stack *list_a, t_stack *list_b);
 void	tri_triple(t_stack *list);
+void	tri_cinq(t_stack *lista, t_stack *listb);
+void	ps_to_trois(t_stack *lista, t_stack *listb);
+void	ps_to_quatre(t_stack *lista, t_stack *listb);
 
 //struct
 t_stack	*new_stack(void);
